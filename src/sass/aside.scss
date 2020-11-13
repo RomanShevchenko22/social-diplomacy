@@ -1,0 +1,158 @@
+@import "stuff/variables.scss";
+
+.aside {
+	&__categories {
+		padding: 5px 15px;
+		background: white;
+		font-size: 14px;
+		margin-bottom: 30px;
+		&-title {
+			font-size: 18px;
+			padding: 10px;
+			margin-bottom: 20px;
+			text-align: center;
+			border: 1px solid $red;
+		} 
+		&-list li {
+			border-bottom: 1px solid #EBEBE3;
+			padding-top: 10px;
+			padding-bottom: 5px;
+			color: #c6c6c6;
+			&:last-child {
+				border-bottom: none;
+			}
+			& a {
+				color: #626262;
+				margin-right: 6px;
+				font-style: normal;
+				&::before {
+					content: "•";
+					display: inline-block;
+					font-family: 'FontAwesome';
+					margin-right: 10px;
+					color: #c6c6c6;
+				}
+			}
+		}
+	}
+	&__notes {		
+		&-title {
+			text-align: center;
+			font-size: 20px;
+		}
+		&-list {
+			& li {
+				display: flex;
+				justify-content: space-between;	
+				align-items: center;
+				border-top: 1px solid #EBEBE3;
+				padding: 15px 0;
+			
+			}
+		}
+		&-name {
+			font-size: 14px;
+			line-height: 18px;
+			margin-bottom: 10px;
+			padding-right: 20px;
+			min-width: 190px;
+		}
+		&-image {
+			& img {
+				width: 120px;
+			}			
+			margin: 0 auto;
+		}
+	}
+	&__widget {
+		&-title {
+			text-align: center;
+			font-size: 20px;
+		}
+		&-form {
+			width: 100%;
+			padding: 10px 0;
+			& input {
+				width: 100%;
+				display: block;
+				float: left;
+				border: 2px solid #EBEBE3;
+				padding: 0 0 0 10px;
+				height: 40px;
+				outline: none;
+				color: #9E9C9C;
+				margin-bottom: 10px;
+			}
+			& button {
+				display: block;
+				width: 99%;
+				margin: 0 auto;
+				
+				padding: 0 15px;
+				background: transparent;
+				height: 40px;
+				border: 1px solid #e80205;
+				color: #e80205;
+				cursor: pointer;
+				font-size: 18px;
+			}
+			& input:focus + button {
+				background: #e02225;
+				color: white;
+			}
+		}
+	}
+}
+@media (min-width: $tablet-width) {
+	.aside {
+		&__categories {
+			font-size: 18px;
+			&-title {
+				font-size: 20px;
+			} 
+		}
+		&__notes {		
+			&-name {
+				line-height: 24px;
+				font-size: 18px;
+				margin-bottom: 10px;
+				padding-right: 20px;
+				min-width: 450px;
+			}
+			&-image {
+				& img {
+					width: 150px;
+				}
+			}
+		}
+		&__widget {
+			&-form {
+				width: 300px;
+				margin: 0 auto;
+				padding: 10px 0;
+			}
+		}
+	}
+}
+
+
+@media (min-width: $desktop-width) {
+	.aside {
+		width: 300px;
+		&__notes {		
+			&-title {
+				font-size: 22px;
+			}
+			&-name {
+				font-size: 14px;
+				line-height: 18px;
+				min-width: 190px;
+			}
+			&-image {
+				& img {
+					width: 110px;
+				}			
+			}
+		}
+	}
+}

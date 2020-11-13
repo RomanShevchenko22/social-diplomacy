@@ -1,0 +1,150 @@
+@import "stuff/variables.scss";
+
+.page-footer {
+	&__contacts {
+		padding-top: 13px;
+		margin-bottom: 50px;
+		&-list {
+			margin: 0;
+			list-style: none;
+			text-align: center;
+		}
+		&-item {
+			padding-top: 23px;
+		}
+		&-title {
+			font-size: 22px;
+		}
+		&-data {
+			display: block;
+			padding-top: 5px;
+
+			text-decoration: none;
+
+			color: #000000;
+			text-align: center;
+			font-size: 20px;
+			line-height: 27px;
+			font-weight: 200;
+		}
+	}
+	&__wrapper {
+		width: 320px;
+		margin: 0 auto;
+	}
+
+	&__social-list {
+		display: flex;
+		justify-content: space-between;
+		margin: 0 auto;
+		width: 190px;
+		list-style: none;
+		margin-bottom: 50px;
+	}
+	&__social-link {
+		display: flex;	
+		width: 45px;
+		height: 45px;
+		border-radius: 50%;
+		border: 3px solid #e9ebec;
+		justify-content: center;
+		align-items: center;
+		&:hover {
+			transition: 0.15s ease;
+			border: 3px solid $darkblue;
+		}
+		&:active {
+			opacity: 0.3;
+		} 	
+
+		&--inst {
+			width: 23px;		
+		}	
+		&--vk {
+			width: 25px;
+		}	
+		&--facebook {
+			width: 11px;
+		}	
+	}	
+	&__logo {
+		display: block;
+		width: 280px;
+		margin: 0 auto;
+		text-align: center;
+		font-size: 20px;
+		margin-bottom: 20px;
+		color: #383838;
+		text-transform: uppercase;
+	}
+	&__year {
+		display: block;
+		text-align: center;
+		padding-bottom: 30px;
+	}
+}
+
+@media (min-width: $tablet-width) {
+	.page-footer {
+		&__contacts {
+			padding-top: 0px;
+			margin-bottom: 40px;
+			&-list {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: space-between;
+	
+				width: 620px;
+				margin: 0 auto;
+			}
+			&-item {
+				width: 300px;
+				padding-top: 45px;
+				&--adress {
+					flex-grow: 1;
+				}
+			}
+			&-data {
+				padding-top: 7px;
+			}
+		}
+		&__social-list {
+			width: 100%;
+			margin-bottom: 40px;
+		}	
+		&__logo {
+			width: 320px;
+			margin: 0;
+			margin-bottom: 20px;
+		}	
+	}
+}
+
+@media (min-width: $desktop-width) {
+	.page-footer {
+		&__contacts {
+			padding-top: 57px;
+			margin-bottom: 30px;
+			&-list {	
+				width: 940px;
+				flex-direction: row;
+			}
+			&-item {
+				padding-top: 0;
+				&--mail {
+					order: 2;
+				}
+				&--adress {
+					flex-grow: initial;
+					order: 1;
+				}
+			}
+			&-data {
+				padding-top: 15px;
+			}
+		}
+		&__social-list {
+			margin-bottom: 30px;
+		}	
+	}
+}

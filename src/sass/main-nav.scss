@@ -1,0 +1,207 @@
+@import "stuff/variables.scss";
+
+.main-nav {
+	width: 320px;
+	min-height: 54px;
+	margin: 0 auto;
+	background-color: $darkblue;	
+	&__wrapper-logo {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+
+		padding-top: 10px;
+		padding-bottom: 10px;
+	}
+	&__logo {	   
+		margin-left: 10px;
+		display: flex;
+		align-items: center;
+		flex-wrap: nowrap;
+		cursor: pointer;
+		& img {
+			display: block;
+			width: 38px;
+		}
+		& p {	
+			width: 150px;
+			padding-left: 20px;
+
+			text-transform: uppercase;
+			color: $white;
+			font-size: 17px;		
+		}
+	}    
+	&__toggle {
+		display: block;
+		margin: 0;
+    border: 0;
+		padding: 0;
+		margin-right: 10px;
+
+    width: 38px;
+		height: 24px;				
+    position: relative;
+    background-color: transparent;
+		cursor: pointer;
+		& span {
+			display: block;
+			position: absolute;
+			left: 0;	  
+			height: 4px;
+			width: 100%;
+			background: $white;
+			border-radius: 1px;
+			opacity: 1;	  
+			transform: rotate(0deg);
+			transition: 0.2s ease-in-out;
+			&:nth-child(2) {	
+				top: 0;		
+			}
+			&:nth-child(3), &:nth-child(4) {
+				top: 10px;
+				z-index: 1;
+			}
+			&:nth-child(5) {
+				top: 20px;				
+			}
+		}
+
+		&--open span {
+			transform: rotate(0deg);
+			transition: .25s ease-in-out;
+			&:nth-child(2), &:nth-child(5) {
+				width: 0%;
+
+				top: 12px;
+				left: 50%;
+			}
+			&:nth-child(3), &:nth-child(4) {
+				width: 38px;
+				height: 4px;
+				
+				top: 10px;
+				left: 0;
+			}
+			&:nth-child(3) {
+				transform: rotate(45deg);
+			}
+			&:nth-child(4) {
+				transform: rotate(-45deg);
+			}
+		}
+	}
+	&__wrapper-list {
+		display: block;
+		position: absolute;
+		left: 0;
+		width: 100%;
+		top: -400px;
+		z-index: -1;
+		transition: top 0.3s cubic-bezier(0.87, 0, 0.13, 1);
+		&--open {
+		  top: 0;
+			transition: top 0.3s cubic-bezier(0.87, 0, 0.13, 1);
+		}
+	}
+
+	&__search {
+		background-color: $darkblue;
+		padding-top: 10px;
+		padding-bottom: 10px;
+		& form {
+		  width: 200px;	
+		  margin: 0 auto;
+
+		  display: flex;
+		  background: #ffffff;
+	  }
+		& input, & button {
+		  border: none;
+			outline: none;
+	  }
+		& input {
+			width: 200px;
+			height: 30px;
+			padding-left: 15px;
+			padding-right: 30px;
+	  }
+		& button {
+			position: relative;
+			display: block;
+			background-color: transparent;
+			border: none;
+			outline: none;
+			cursor: pointer;
+		  &:before {
+				content: "";				
+				height: 25px;
+				width: 25px;
+				top: 3px;
+				right: 2px;
+			
+				position: absolute;
+				background-image: url("../img/magnifier.svg");
+			}
+		}
+	}
+}
+
+@media (min-width: $tablet-width) {
+	.main-nav {
+		min-width: 640px;
+		min-height: 60px;
+		&__logo {
+			& img {
+				width: 40px;
+			}
+			& p {
+				width: 370px;
+				font-size: 21px;
+			}
+		}
+		&__search {
+			& form, & input{
+				width: 280px;
+			}
+		}
+  }
+}
+
+@media (min-width: $desktop-width) {	
+	.main-nav {		
+ 	  min-width: 1280px;
+		min-height: 60px;	
+		display: flex;
+		flex-wrap: nowrap;
+		&__wrapper-logo {
+			display: block;
+		}
+		&__logo {	
+			& p {	
+				width: 300px;
+				padding-left: 12px;
+	
+				text-transform: uppercase;
+				color: $white;
+				font-size: 18px;		
+			}
+		}    	
+		&__toggle {
+			display: none;
+		}
+		&__list {
+			padding-right: 150px;
+		}
+		&__wrapper-list {
+			position: static;			
+			z-index: 0;
+			display: flex;
+			justify-content: flex-end;
+			align-items: center;
+		}
+		&__search {
+			margin-right: 20px;
+		}	
+	}
+}
